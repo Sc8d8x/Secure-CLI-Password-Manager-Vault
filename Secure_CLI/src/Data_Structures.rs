@@ -2,7 +2,7 @@ use serde::{Deserialize, Serialize};
 use zeroize::Zeroize;
 // Stroge one User 
 #[derive(Serialize, Deserialize, Clone, Debug)]
-pub struct enterUser {
+pub struct EnterUser {
         pub salt: String,
         pub nonce: String,
         pub chiptext: Zeroize<String>,
@@ -20,9 +20,9 @@ pub struct SavedFile {
 
 
 // Safe Stroge of the master password in Ram 
-pub struct masterPossword(String);
+pub struct MasterPossword(String);
 
-impl masterPossword{
+impl MasterPossword{
     
     pub fn new(pwd:String) -> Self {
         Self(Zeroizing::new(pwd));
@@ -33,7 +33,7 @@ impl masterPossword{
     }
 }
 // rubbing
-impl Drop for masterPossword {
+impl Drop for MasterPossword {
     fn drop(&mut self){
         self.0.zeroize()
     }
