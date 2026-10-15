@@ -23,17 +23,17 @@ pub struct SavedFile {
 pub struct masterPossword(String);
 
 impl masterPossword{
-    // 
+    
     pub fn new(pwd:String) -> Self {
         Self(Zeroizing::new(pwd));
     }
-    // // provides read-only access to the password bytes
-    pub as_bytes(&self) -> &[u8] {
+    // provides read-only access to the password bytes
+    pub fn as_bytes(&self) -> &[u8] {
         self.0.as_bytes()
     }
 }
 // rubbing
-impl Drop For masterPossword {
+impl Drop for masterPossword {
     fn drop(&mut self){
         self.0.zeroize()
     }
