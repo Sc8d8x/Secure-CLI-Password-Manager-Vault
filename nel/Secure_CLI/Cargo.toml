@@ -1,0 +1,24 @@
+[package]
+name = "Secure_CLI"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+# CLI and UI
+clap = {version = "4.4", features = ["derive"]}
+rpassword = "7.3"
+comfy-table = "7.1"
+dirs = "5.0"
+
+# Cryptography
+aes-gcm = "0.10" 
+argon2 = "0.5"
+rand = "0.8" 
+
+# Data & Memory Safety
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+zeroize = { version = "1.7", features = ["derive"] } 
+anyhow = "1.0"          
+base64 = "0.21" 
+base64-bytes = "0.1.1"
